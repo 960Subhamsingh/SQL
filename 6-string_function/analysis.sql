@@ -22,10 +22,10 @@ SELECT
 FROM
     employees
 WHERE
-    ( ( employee_id LIKE 'AD%'
-        AND salary > 10000 )
-      OR ( employee_id LIKE 'IT%'
-           AND salary <= 10000 ) )
-    OR ( department_id IN ( 90, 60, 30 )
-         AND commission_pct = 0 )
-    AND hire_date > TO_DATE('1-JAN-2000', 'dd-MON-yyyy');
+    ( ( first_name LIKE 'AD%'
+        AND emp_no > 10000 )
+      OR ( first_name LIKE 'IT%'
+           AND emp_no<= 10000 ) )
+    OR ( emp_no IN ( 10001, 10002, 10003 )
+         AND emp_no = 10001 )
+    AND birth_date > TO_DATE('1-JAN-2000', 'dd-MON-yyyy');

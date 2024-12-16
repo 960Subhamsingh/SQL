@@ -34,7 +34,6 @@ GRADE_CUSTOMER
              6
 ```
 
-
 4. Write a SQL statement to get the maximum purchase amount of all the orders
 
 ```
