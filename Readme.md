@@ -10,8 +10,8 @@
 5. Aggregate Functions [Aggregate Functions](./5-Aggergate%20function/agg.MD)
 6. Inbuilt Functions
 7. Nested Queries
-8. Set Operators
-9. Triggers 
+8. Set Operators [Set Operators](./8-Set%20Opeartors/code.sql)
+9. Triggers [Triggers](./9-Triggers/cmd.sql)
 10. Cursors
 11. Joins
 12. Views
