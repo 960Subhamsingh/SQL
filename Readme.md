@@ -18,4 +18,4 @@
 13. Procedures [Procedures](./13-Procedures/Proceures.sql)
 14. Functions [Functions](./14-Functions/function.sql)
 15. Entity Relation (ER) Diagram
-16. PL/SQL with Exception Handling
+16. PL/SQL with Exception Handling[Exception Handling](./16-exception%20handling/exception_handling.sql)
