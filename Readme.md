@@ -14,7 +14,7 @@
 9. Triggers [Triggers](./9-Triggers/cmd.sql)
 10. Cursors
 11. Joins
-12. Views
+12. Views [Views](./12-Views/view.sql)
 13. Procedures [Procedures](./13-Procedures/Proceures.sql)
 14. Functions [Functions](./14-Functions/function.sql)
 15. Entity Relation (ER) Diagram
