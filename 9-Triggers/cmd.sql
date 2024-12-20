@@ -1,3 +1,7 @@
+
+-----------------------------
+
+
 CREATE TABLE std (
     "Std_ID"   NUMBER(6),
     "Std_name" VARCHAR2(20),
@@ -29,6 +33,8 @@ CREATE TABLE stdn (
     result VARCHAR(10)
 );
 
+desc stdn;
+
 CREATE OR REPLACE TRIGGER t1 BEFORE
     INSERT ON stdn
     FOR EACH ROW
@@ -48,7 +54,36 @@ BEGIN
 
 END;
 /
-insert into stdn(rollno, name,m1,m2,m3) values(1,'subham kumar',50,60,70);
+--------------------------------
+ALTER TABLE stdn drop column status;
+ALTER TABLE stdn ADD (status VARCHAR(20));
+drop trigger t2;
+
+CREATE OR REPLACE TRIGGER t2
+BEFORE INSERT ON stdn
+FOR EACH ROW
+BEGIN
+    -- Calculate total and average
+    :new.tot := :new.m1 + :new.m2 + :new.m3;
+    :new.avrg := :new.tot / 3;
+
+    -- Set result based on marks
+    IF (:new.m1 >= 50 AND :new.m2 >= 50 AND :new.m3 >= 50) THEN
+        :new.result := 'pass';
+    ELSE
+        :new.result := 'Fail';
+    END IF;
+
+    -- Set the 'status' column (for example, default 'active')
+    :new.status := 'active';
+END;
+/
+
+insert into stdn(rollno, name,m1,m2,m3) values(1,'sr',35,60,70);
+
+INSERT INTO stdn(rollno, name, m1, m2, m3) 
+VALUES(1, 'sk', 50, 60, 70);
+
 select * from stdn;
 
 -- student table 
@@ -132,7 +167,6 @@ INSERT INTO student(
 select * from student;
 
 --2. PROGRAM TO INDICATE INVALID CONDITION USING TRIGGER(if age>100,before insert )
-
 
 CREATE OR REPLACE TRIGGER invalid_age BEFORE
     INSERT ON student
