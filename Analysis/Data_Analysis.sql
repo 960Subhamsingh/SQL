@@ -102,7 +102,8 @@ WHERE
 SELECT
     *
 FROM
-         departments JOIN employees ON employees.employee_id = departments.department_id
+         departments
+    JOIN employees ON employees.employee_id = departments.department_id
 WHERE
         departments.department_name = 'Marketing'
     AND employees.salary <= 6000;
@@ -227,7 +228,8 @@ SELECT
 FROM
     jobs
 WHERE
-    job_title IN ( 'Finance Manager', 'Accountant', 'Shipping Clerk' );
+    job_title
+in('Finance Manager', 'Accountant', 'Shipping Clerk');
 
 SELECT
     first_name,
@@ -402,3 +404,22 @@ COMMIT;
 
 --Drop table.
 DROP TABLE employee_backup;
+
+-- Find how many employees in each departments
+
+SELECT
+    employees.employee_id,
+    departments.department_id,
+    departments.department_name,
+    initcap(employees.first_name) first_name,
+    employees.salary,
+    COUNT(*)                      AS total
+FROM
+         employees
+    INNER JOIN departments ON employees.employee_id = departments.department_id
+GROUP BY
+    initcap(employees.first_name),
+    employees.salary,
+    employees.employee_id,
+    departments.department_id,
+    departments.department_name;
